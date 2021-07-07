@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "electron": "^13.1.6"
+  },
+  "name": "wbbd",
+  "version": "0.0.1",
+  "main": "./Code/base.js",
+  "scripts": {
+    "start": "electron ./Code/base.js"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Debug",
+    "discord.js"
+  ],
+  "author": "daniel_crime",
+  "license": "ISC",
+  "description": ""
+}
