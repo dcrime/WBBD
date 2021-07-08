@@ -1,6 +1,7 @@
 body {
     background-color: #36393F;
     color: white;
+    font-family: Tahoma;
 }
 
 textarea:focus, input:focus {
@@ -11,20 +12,22 @@ textarea:focus, input:focus {
     background-color: #202225;
     overflow-y: scroll;
     position: absolute;
-    height: 600px;
+    height: 100%;
     width: 86px;
     left: 0;
     top: 0;
+    float: left;
 }
 
 #right {
     background-color: #2F3136;
     overflow-y: scroll;
     position: absolute;
-    height: 600px;
+    height: 100%;
     width: 232px;
-    left: 568px;
+    right: 0;
     top: 0;
+    float: right;
 }
 
 #midPins {
@@ -59,7 +62,7 @@ textarea:focus, input:focus {
 #server-nav {
     background-color: rgb(47, 49, 54);
     position: absolute;
-    height: 600px;
+    height: 100%;
     width: 230px;
     left: 86px;
     top: 0;
@@ -75,12 +78,13 @@ textarea:focus, input:focus {
     align-items: center;
     display: flex;
     height: 51px;
+    margin-left: 15px;
 }
 
 #middle {
     position: absolute;
-    height: 51px;
-    width: 252px;
+    height: 100%;
+    width: calc(100% - 232px - 230px - 86px);
     left: 316px;
     top: 0px;
 }
@@ -90,6 +94,7 @@ textarea:focus, input:focus {
     display: flex;
     height: 51px;
     width: 100%;
+    background-color: #36393F;
 }
 
 #channelTopNameHash {
@@ -97,12 +102,14 @@ textarea:focus, input:focus {
 }
 
 
-/*#channelTopName {}*/
+#channelTopName {
+    margin-left: 15px;
+}
 
 #separator {
     background-color: #222427;
     margin-bottom: 20px;
-    height: 3px;
+    height: 2px;
     color: white;
 }
 
@@ -128,7 +135,7 @@ textarea:focus, input:focus {
     display: inline-flex;
 }
 
-#categoryName {
+#categoryName {i
     display: inline-flex;
 }
 
@@ -143,15 +150,22 @@ textarea:focus, input:focus {
 }
 
 #messageBoxPlaceholder {
-    position: relative;
-    display: flex;
+    position: absolute;
     width: 100%;
-    top: 500px;
+    height: 44px;
+    bottom: 10px;
 }
 
 #messageBox {
     background-color: #40444B;
-    color: white;
+    color: #cccccc;
+    border: none;
+    border-radius: 8px;
+    height: 100%;
+    width: calc(100% - 32px);
+    margin-left: 10px;
+    padding-left: 10px;
+    font-size: 18px;
 }
 
 #loginScreen {
