@@ -3,6 +3,10 @@ body {
     color: white;
 }
 
+textarea:focus, input:focus {
+    outline: none;
+}
+
 #left {
     background-color: #202225;
     overflow-y: scroll;
@@ -151,7 +155,7 @@ body {
 }
 
 #loginScreen {
-    background-color: black;
+    background-color: #222222;
     position: absolute;
     z-index: 100;
     height: 100%;
@@ -160,14 +164,49 @@ body {
     top: 0;
 }
 
-#loginPlaceholder{
+#loginPlaceholder {
     position: absolute;
-    left: 324px;
-    top: 221px;
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 25%;
+    text-align: center;
+    font-family: Tahoma;
 }
 
-#loginButton{
-    float:right;
+#loginHeader {
+    color: #cccccc;
+    font-size: 48px;
+}
+
+#loginToken {
+    background-color: #333333;
+    border: 2px solid #222222;
+    border-radius: 50px;
+    padding: 10px;
+    color: #cccccc;
+}
+
+#loginButton {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: #777777;
+    background-color: #333333;
+    border: 1px solid #222222;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 50px;
+    transition: 200ms;
+}
+
+#loginButton:hover {
+    color: #cccccc;
+    transition: 200ms;
 }
 
 ::-webkit-scrollbar {
