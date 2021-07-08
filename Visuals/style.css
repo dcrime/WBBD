@@ -1,7 +1,7 @@
 body {
     background-color: #36393F;
-    color: white;
     font-family: Tahoma;
+    color: white;
 }
 
 textarea:focus, input:focus {
@@ -13,10 +13,10 @@ textarea:focus, input:focus {
     overflow-y: scroll;
     position: absolute;
     height: 100%;
+    float: left;
     width: 86px;
     left: 0;
     top: 0;
-    float: left;
 }
 
 #right {
@@ -24,10 +24,10 @@ textarea:focus, input:focus {
     overflow-y: scroll;
     position: absolute;
     height: 100%;
+    float: right;
     width: 232px;
     right: 0;
     top: 0;
-    float: right;
 }
 
 #midPins {
@@ -76,9 +76,9 @@ textarea:focus, input:focus {
 
 #guildName {
     align-items: center;
+    margin-left: 15px;
     display: flex;
     height: 51px;
-    margin-left: 15px;
 }
 
 #middle {
@@ -90,11 +90,11 @@ textarea:focus, input:focus {
 }
 
 #channelTopNamePlaceholder {
+    background-color: #36393F;
     align-items: center;
     display: flex;
     height: 51px;
     width: 100%;
-    background-color: #36393F;
 }
 
 #channelTopNameHash {
@@ -135,7 +135,7 @@ textarea:focus, input:focus {
     display: inline-flex;
 }
 
-#categoryName {i
+#categoryName {
     display: inline-flex;
 }
 
@@ -151,21 +151,21 @@ textarea:focus, input:focus {
 
 #messageBoxPlaceholder {
     position: absolute;
-    width: 100%;
     height: 44px;
     bottom: 10px;
+    width: 100%;
 }
 
 #messageBox {
     background-color: #40444B;
-    color: #cccccc;
-    border: none;
     border-radius: 8px;
+    padding-left: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+    border: none;
     height: 100%;
     width: calc(100% - 32px);
-    margin-left: 10px;
-    padding-left: 10px;
-    font-size: 18px;
+    color: #cccccc;
 }
 
 #loginScreen {
@@ -179,48 +179,44 @@ textarea:focus, input:focus {
 }
 
 #loginPlaceholder {
+    font-family: Tahoma;
+    text-align: center;
     position: absolute;
-    width: 50%;
     height: 50%;
+    width: 50%;
     left: 25%;
     top: 25%;
-    text-align: center;
-    font-family: Tahoma;
 }
 
 #loginHeader {
-    color: #cccccc;
     font-size: 48px;
+    color: #cccccc;
 }
 
 #loginToken {
     background-color: #333333;
-    border: 2px solid #222222;
     border-radius: 50px;
     padding: 10px;
+    border: 2px solid #222222;
     color: #cccccc;
 }
 
 #loginButton {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    color: #777777;
     background-color: #333333;
-    border: 1px solid #222222;
-    margin-top: 15px;
-    padding: 10px;
     border-radius: 50px;
     transition: 200ms;
+    margin-top: 15px;
+    outline: inherit;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #222222;
+    color: #777777;
+    font: inherit;
 }
 
 #loginButton:hover {
-    color: #cccccc;
     transition: 200ms;
+    color: #cccccc;
 }
 
 ::-webkit-scrollbar {
