@@ -4,7 +4,7 @@ body {
     color: white;
 }
 
-textarea:focus, input:focus {
+textarea:focus, input:focus, span:focus {
     outline: none;
 }
 
@@ -50,13 +50,23 @@ textarea:focus, input:focus {
 }
 
 .guild {
-    background-color: white;
+    background-color: #36393F;
     border-radius: 50px;
     position: absolute;
     display: inline-block;
     height: 60px;
     width: 60px;
     left: 13px;
+}
+
+.guild:hover {
+    border-radius: 15px;
+    background-color: #5865F2;
+}
+
+.guildSelected {
+    border-radius: 15px;
+    background-color: #5865F2;
 }
 
 #server-nav {
@@ -208,7 +218,8 @@ textarea:focus, input:focus {
 
 #messageBoxPlaceholder {
     position: absolute;
-    height: 44px;
+    min-height: 44px;
+    max-height: 500px;
     bottom: 10px;
     width: 100%;
 }
@@ -217,12 +228,22 @@ textarea:focus, input:focus {
     background-color: #40444B;
     border-radius: 8px;
     padding-left: 10px;
-    margin-left: 10px;
+    padding-top: 10px;
+    margin-left: 11px;
     font-size: 18px;
     border: none;
-    height: 100%;
     width: calc(100% - 32px);
     color: #cccccc;
+    display: block;
+    max-height: 350px;
+    min-height: 34px;
+    overflow: hidden;
+    line-height: 20px;
+}
+
+#messageBox[contenteditable]:empty::before {
+  content: "Enter message";
+  color: #aaaaaa;
 }
 
 #loginScreen {
