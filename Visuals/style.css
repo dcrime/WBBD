@@ -195,7 +195,7 @@ textarea:focus, input:focus {
 
 #loginToken {
     background-color: #333333;
-    border-radius: 50px;
+    border-radius: 8px;
     padding: 10px;
     border: 2px solid #222222;
     color: #cccccc;
@@ -203,7 +203,7 @@ textarea:focus, input:focus {
 
 #loginButton {
     background-color: #333333;
-    border-radius: 50px;
+    border-radius: 8px;
     transition: 200ms;
     margin-top: 15px;
     outline: inherit;
