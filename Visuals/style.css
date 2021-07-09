@@ -69,7 +69,6 @@ textarea:focus, input:focus {
 }
 
 #guildNamePlaceholder {
-    justify-content: center;
     display: flex;
     height: 51px;
 }
@@ -104,6 +103,9 @@ textarea:focus, input:focus {
 
 #channelTopName {
     margin-left: 15px;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 600;
 }
 
 #separator {
@@ -123,30 +125,85 @@ textarea:focus, input:focus {
 }
 
 #category {
-    padding-bottom: 10px;
+    padding-bottom: 2px;
 }
 
 #categoryPlaceholder {
     display: table-cell;
+    width: 230px;
 }
 
 #categoryExpand {
     margin-left: 12px;
     display: inline-flex;
+    transform: rotate(180deg);
+    font-size: 12px;
+    font-weight: 800;
+    color: #8E9297;
+}
+
+#categoryExpanded {
+    margin-left: 12px;
+    display: inline-flex;
+    transform: rotate(90deg);
+    font-size: 12px;
+    font-weight: 800;
+    color: #8E9297;
+}
+
+#categoryExpand:hover, #categoeyExpanded:hover {
+    color: #DCDDDE;
 }
 
 #categoryName {
     display: inline-flex;
+    font-size: 12px;
+    font-weight: 800;
+    color: #8E9297;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+#categoryName:hover {
+    color: #DCDDDE;
+}
+
+#channel {
+    height: 27px;
+    padding-left: 7px;
+    padding-top: 7px;
+    background-color: inherit;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #8E9297;
+}
+
+#channelSelected {
+    height: 27px;
+    padding-left: 7px;
+    padding-top: 7px;
+    background-color: rgba(79, 84, 92, 0.32);
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
 }
 
 #channelType {
-    margin-left: 23px;
+    margin-left: 10px;
     display: inline-flex;
+    width: 12px;
 }
 
 #channelName {
     text-align: center;
     display: inline-flex;
+}
+
+#channel:hover {
+    color: #DCDDDE;
 }
 
 #messageBoxPlaceholder {
