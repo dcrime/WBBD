@@ -1,4 +1,4 @@
-const { ipcMain, app, globalShortcut, webFrame, BrowserWindow, Menu } = require('electron')
+const { app, globalShortcut, webFrame, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 
 let site = '../Visuals'
@@ -9,20 +9,15 @@ function createWindow() {
         height: 720,
         title: 'WBBD',
         webPreferences: {
-            nodeIntegration: false,
-            contextIsolation: true,
+            nodeIntegration: true,
+            contextIsolation: false,
             enableRemoteModule: false,
-            preload: path.join(__dirname, "preload.js")
         },
-        frame: false
+        frame: true
     })    
 
     win.loadFile(`${site}/index.html`)
     // Menu.setApplicationMenu(null)
-
-    ipcMain.on("toMain", (event, args) => {
-        console.log(args)
-    });
 }
 
 app.whenReady().then(() => {

@@ -1,73 +1,82 @@
-window.api.receive("fromMain", (data) => {
-    console.log(`Received ${data} from main process`);
-});
+// const { client } = require("./global");
 
 // @ts-check
 globalThis.createElement = (tag, options) => {
     return Object.assign(document.createElement(tag), options);
 }
-function displayGuild(amount, home, homeSep, left) {
-    for (let i = 0; i < amount; i++) {
-        let thingy = createElement('div', {
-            onclick: () => { homeColor(thingy) },
-            style: {
-                color: 'black'
-            }
+
+function displayGuild(amount, homeSep, left) {
+    let i = 0;
+    // @ts-ignore
+    bot.guilds.cache.forEach(g => {
+        let guild = createElement('div', {
+            // @ts-ignore
+            onclick: () => { homeColor(guild) }, style: { color: 'black' }
         });
-        thingy.classList.add('guild')
-        thingy.style.top = `${homeSep.offsetTop + 13 + (i) * 65}px`
-        left.appendChild(thingy)
-    }
+
+        guild.classList.add('guild')
+        guild.style.top = `${homeSep.offsetTop + 13 + (i) * 65}px`
+
+        let guildAcronym = createElement('div', {});
+        guildAcronym.classList.add('guildAcronym')
+        guildAcronym.innerText = g.nameAcronym
+
+        guild.appendChild(guildAcronym)
+        left.appendChild(guild)
+        i++;
+    });
 }
+
+// function displayGuild(amount, homeSep, left) {
+//     for (let i = 0; i < amount; i++) {
+//         let guild = createElement('div', {
+//             // @ts-ignore
+//             onclick: () => { homeColor(guild) },
+//             style: {
+//                 color: 'black'
+//             }
+//         });
+//         guild.classList.add('guild')
+//         guild.style.top = `${homeSep.offsetTop + 13 + (i) * 65}px`
+
+//         let guildAcronym = createElement('div', {});
+//         guildAcronym.classList.add('guildAcronym')
+
+//         guild.appendChild(guildAcronym)
+//         left.appendChild(guild)
+//     }
+// }
 
 function start() {
     let left = document.getElementById('left'),
-        right = document.getElementById('right'),
-        home = document.getElementById('home'),
-        homeSep = document.getElementById('home-sep'),
-        serverNav = document.getElementById('server-nav')
+        homeSep = document.getElementById('home-sep')
 
-    // home.onclick = () => { homeColor(home) }
-    // window.api.send("toMain",
-    //     ["leftH",
-    //         left.style.height = `${window.innerHeight}px`]
-    // );
-    // window.api.send("toMain",
-    //     ["rightH",
-    //         right.style.height = `${window.innerHeight}px`]
-    // );
-    // window.api.send("toMain",
-    //     ["serverNavH",
-    //         serverNav.style.height = `${window.innerHeight}px`]
-    // );
-    // window.api.send("toMain",
-    //     ["serverNavL",
-    //         serverNav.style.left = `${left.offsetWidth}px`]
-    // );
-    // window.api.send("toMain",
-    //     ["homeL",
-    //         home.style.left = `${left.offsetWidth / 2 - home.offsetWidth / 2}px`]
-    // );
-    // window.api.send("toMain",
-    //     ["HomeSepT",
-    //         homeSep.style.top = `${home.offsetTop + 13}px`]
-    // );
-    // window.api.send("toMain",
-    //     ["HomeSepL",
-    //         homeSep.style.left = `${left.offsetWidth / 2 - homeSep.offsetWidth / 2}px`]
-    // );
-    displayGuild(10, home, homeSep, left)
+    displayGuild(10, homeSep, left)
 }
 
 function login(token = null) {
-    tokenValue = document.getElementById('loginToken')
-    loginButton = document.getElementById('loginButton')
-    console.log(token)
+    let tokenValue = document.getElementById('loginToken')
+    let loginButton = document.getElementById('loginButton')
+    let loginMessage = document.getElementById('loginMessage')
+
     if (token == null) {
+        // @ts-ignore
         loginButton.onclick = () => { login(tokenValue.value) }
     } else {
-        start()
-        document.getElementById('loginScreen').style.display = 'none'
+        // @ts-ignore
+        botLogin(tokenValue.value).then(confirm => {
+            if (confirm) {
+                start(), document.getElementById('loginScreen').style.display = 'none'
+            } else {
+                loginMessage.animate([
+                    { opacity: '0%' },
+                    { opacity: '100%' },
+                    { opacity: '0%' }
+                ], { duration: 1000, iterations: 1 });
+
+                console.log('Incorrect login')
+            }
+        })
     }
 }
 

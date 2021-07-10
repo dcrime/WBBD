@@ -1,3 +1,5 @@
+import Discord from "discord.js";
+
 type KeysOfType<A, T> = {
     [K in keyof A]: A[K] extends T ? K : never;
 }[keyof A];
@@ -19,5 +21,8 @@ function createElement
     return Object.assign(document.createElement(tag), options);
 }
 
+function botLogin(token: string): Promise<boolean>
+
+let bot: Discord.Client
 
 //createElement('img', { src: "link" });

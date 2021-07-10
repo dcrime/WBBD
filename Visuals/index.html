@@ -2,17 +2,20 @@
 <html>
 
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';"> -->
         <link rel='stylesheet' href="style.css">
+        <script src="../Code/bot.js"></script>
         <script src="../Code/main.js"></script>
     </head>
 
     <body>
         <div id="loginScreen">
             <div id="loginPlaceholder">
-		<h1 id="loginHeader">WBBD</h1>
-		<input type="text" placeholder="Bot Token" id="loginToken"/><br>
-                <input type="button" value="Log in" id="loginButton"/>
+                <h1 id="loginHeader">WBBD</h1>
+                <input type="text" placeholder="Bot Token" id="loginToken" /><br>
+                <input type="button" value="Log in" id="loginButton" />
+                <br>
+                <p id='loginMessage'>Incorect login</p>
             </div>
         </div>
         <div id="left">
@@ -29,15 +32,15 @@
                 <div id="categoryPlaceholder">
                     <div id="category">
                         <div id="categoryExpand">^</div>
-			<div id="categoryName">TEXT CHANNELS</div>
+                        <div id="categoryName">TEXT CHANNELS</div>
                         <div id="channelSelected">
                             <div id="channelType">#</div>
                             <div id="channelName">not-nsfw-chan</div>
                         </div>
-			<div id="channel">
-			    <div id="channelType">!!</div>
-			    <div id="channelName">yes-nsfw-chan</div>
-			</div>
+                        <div id="channel">
+                            <div id="channelType">!!</div>
+                            <div id="channelName">yes-nsfw-chan</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -50,22 +53,22 @@
                 <div id="midHide">M</div>
             </div>
             <div id="separator"></div>
-	    <div id="messageList">
-	        <div id="messageElement">
-			<div id="authorImg"></div>
-		    <p id="messageAuthor">maalos</p>
-		    <p id="message">Hello, world!</p>
-		</div>	
-	    </div>
+            <div id="messageList">
+                <div id="messageElement">
+                    <div id="authorImg"></div>
+                    <p id="messageAuthor">maalos</p>
+                    <p id="message">Hello, world!</p>
+                </div>
+            </div>
             <div id="messageBoxPlaceholder">
-		<span id="messageBox" role="textbox" placeholder="Enter message" contenteditable></span>
+                <span id="messageBox" role="textbox" placeholder="Enter message" contenteditable></span>
             </div>
         </div>
         <div id="right">
             <div id="channelTopNamePlaceholder">
                 <div id="channelTopName"></div>
             </div>
-	    <div id="separator"></div>
+            <div id="separator"></div>
     </body>
 
 </html>
