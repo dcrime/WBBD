@@ -2,6 +2,7 @@ body {
     background-color: #36393F;
     font-family: Tahoma;
     color: white;
+    user-select: none;
 }
 
 textarea:focus, input:focus, span:focus {
@@ -57,16 +58,19 @@ textarea:focus, input:focus, span:focus {
     height: 60px;
     width: 60px;
     left: 13px;
+    transition: 200ms;
 }
 
 .guild:hover {
     border-radius: 15px;
     background-color: #5865F2;
+    transition: 200ms;
 }
 
 .guildSelected {
     border-radius: 15px;
     background-color: #5865F2;
+    transition: 200ms;
 }
 
 #server-nav {
@@ -107,7 +111,9 @@ textarea:focus, input:focus, span:focus {
 }
 
 #channelTopNameHash {
-    margin: 0px 6px 0px 14px;
+    margin: -2px -5px 0px 14px;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 
@@ -116,6 +122,7 @@ textarea:focus, input:focus, span:focus {
     font-size: 16px;
     color: #FFFFFF;
     font-weight: 600;
+    margin-top: -2px;
 }
 
 #separator {
@@ -205,6 +212,10 @@ textarea:focus, input:focus, span:focus {
     margin-left: 10px;
     display: inline-flex;
     width: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: -10px;
+    margin-right: 5px;
 }
 
 #channelName {
@@ -214,6 +225,36 @@ textarea:focus, input:focus, span:focus {
 
 #channel:hover {
     color: #DCDDDE;
+}
+
+#messageList {
+    
+}
+
+#messageElement {
+    display: flex;
+    user-select: text;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#messageAuthor {
+    margin-top: 0;
+    margin-left: 10px;
+    color: lime;
+    font-weight: 600;
+}
+
+#authorImg {
+    height: 48px;
+    width: 48px;
+    border-radius: 50px;
+    background-color: #cccccc;
+}
+
+#message {
+    margin-left: -57px;
+    margin-top: 25px;
 }
 
 #messageBoxPlaceholder {
