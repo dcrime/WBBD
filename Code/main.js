@@ -9,10 +9,7 @@ function displayGuild(amount, homeSep, left) {
     let i = 0;
     // @ts-ignore
     bot.guilds.cache.forEach(g => {
-        let guild = createElement('div', {
-            // @ts-ignore
-            onclick: () => { homeColor(guild) }, style: { color: 'black' }
-        });
+        let guild = createElement('div', {});
 
         guild.classList.add('guild')
         guild.style.top = `${homeSep.offsetTop + 13 + (i) * 65}px`
@@ -57,7 +54,6 @@ function start() {
 function login(token = null) {
     let tokenValue = document.getElementById('loginToken')
     let loginButton = document.getElementById('loginButton')
-    let loginMessage = document.getElementById('loginMessage')
 
     if (token == null) {
         // @ts-ignore
@@ -68,21 +64,16 @@ function login(token = null) {
             if (confirm) {
                 start(), document.getElementById('loginScreen').style.display = 'none'
             } else {
-                loginMessage.animate([
-                    { opacity: '0%' },
-                    { opacity: '100%' },
-                    { opacity: '0%' }
-                ], { duration: 1000, iterations: 1 });
+                loginButton.animate([
+                    { backgroundColor: '#333333' },
+                    { backgroundColor: '#330000' },
+                    { backgroundColor: '#333333' }
+                ], { duration: 300, iterations: 2 });
 
-                console.log('Incorrect login')
+                console.log('Incorrect token')
             }
         })
     }
-}
-
-function homeColor(self) {
-    console.log(self.style.backgroundColor)
-    self.style.backgroundColor == 'black' ? self.style.backgroundColor = 'white' : self.style.backgroundColor = 'black'
 }
 
 window.onload = () => { login(null) };

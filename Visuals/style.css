@@ -11,15 +11,6 @@ span:focus {
     outline: none;
 }
 
-#loginMessage {
-    border-color: white;
-    text-shadow: 10px 9px black;
-    font-size: 90px;
-    opacity: 0;
-    border: 29px;
-    color: red;
-}
-
 #left {
     background-color: #202225;
     overflow-y: scroll;
@@ -64,10 +55,12 @@ span:focus {
 .guild {
     background-color: #36393F;
     border-radius: 50px;
+    text-align: center;
     transition: 200ms;
     position: absolute;
     display: inline-block;
-    height: 60px;
+    padding-top: 20px;
+    height: 40px;
     width: 60px;
     left: 13px;
 }
@@ -86,10 +79,9 @@ span:focus {
 
 .guildAcronym {
     position: relative;
-    margin: 23px 0 0 17px;
     height: 100%;
     width: 100%;
-    color: white;
+    color: #cccccc;
 }
 
 #server-nav {
