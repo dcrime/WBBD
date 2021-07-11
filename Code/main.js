@@ -54,6 +54,7 @@ function start() {
 function login(token = null) {
     let tokenValue = document.getElementById('loginToken')
     let loginButton = document.getElementById('loginButton')
+    let errorBox = document.getElementById('errorBox')
 
     if (token == null) {
         // @ts-ignore
@@ -69,7 +70,6 @@ function login(token = null) {
                     { backgroundColor: '#330000' },
                     { backgroundColor: '#333333' }
                 ], { duration: 300, iterations: 2 });
-
                 console.log('Incorrect token')
             }
         })

@@ -328,6 +328,8 @@ span:focus {
     padding: 10px;
     border: 2px solid #222222;
     color: #cccccc;
+    width: 500px;
+    text-align: center;
 }
 
 #loginButton {
@@ -351,4 +353,56 @@ span:focus {
 ::-webkit-scrollbar {
     background: transparent;
     width: 0;
+}
+
+#notificationPlaceholder {
+    padding: 10px;
+    z-index: 150;
+}
+
+#errorBox {
+    position: relative;
+    height: 100px;
+    width: 530px;
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 150;
+    margin-bottom: 20px;
+}
+
+#errorBox p {
+    margin: 0;
+}
+
+#xBtn {
+    transform: rotateZ(-45deg);
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#errorTitle {
+    font-size: 22px;
+}
+
+#errorDesc1 {
+    font-size: 16px;
+    color: #dddddd;
+}
+
+#errorDesc2 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #dddddd;
+}
+
+#errorDesc3 {
+    font-size: 16px;
+    color: #dddddd;
 }
