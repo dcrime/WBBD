@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
     background-color: #36393F;
-    font-family: Tahoma;
+    font-family: 'Open Sans';
     user-select: none;
     color: white;
 }
@@ -262,7 +264,7 @@ span:focus {
 }
 
 #message {
-    margin-left: -56px;
+    margin-left: -54px;
     margin-top: 25px;
 }
 
@@ -307,7 +309,6 @@ span:focus {
 }
 
 #loginPlaceholder {
-    font-family: Tahoma;
     text-align: center;
     position: absolute;
     height: 50%;
