@@ -2,6 +2,12 @@
 const Discord = require('discord.js');
 const randexp = require('randexp');
 const bot = new Discord.Client()
+
+/** @type {Discord.Guild} currentGuild*/
+let currentGuild;
+/** @type {Discord.Channel} currentChannel */
+let currentChannel;
+
 /** @param {string} token */
 let botLogin = async token => new Promise(async resolve => {
     let reg = RegExp('^[a-zA-Z0-9\\-_]{24}\\.[a-zA-Z0-9\\-_]{6}\\.[a-zA-Z0-9\\-_]{27}');

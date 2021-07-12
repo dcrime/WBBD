@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
-
     <head>
         <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self';"> -->
-        <link rel='stylesheet' href="style.css">
+        <link rel="stylesheet" href="style.css" />
+        <script src="../Code/miscs.js"></script>
         <script src="../Code/bot.js"></script>
         <script src="../Code/main.js"></script>
     </head>
-
     <body>
         <div id="notificationPlaceholder">
             <!-- <div id="errorBox">
@@ -21,14 +20,13 @@
         <div id="loginScreen">
             <div id="loginPlaceholder">
                 <h1 id="loginHeader">WBBD</h1>
-                <input type="text" placeholder="Bot Token" id="loginToken" /><br>
+                <input type="text" placeholder="Bot Token" id="loginToken" /><br />
                 <input type="button" value="Log in" id="loginButton" />
             </div>
         </div>
         <div id="left">
-            <div id="home">
-            </div>
-            <div id='home-sep'></div>
+            <div id="home"></div>
+            <div id="home-sep"></div>
         </div>
         <div id="server-nav">
             <div id="guildNamePlaceholder">
@@ -38,15 +36,15 @@
             <div id="channelPlaceholder">
                 <div id="categoryPlaceholder">
                     <div id="category">
-                        <div id="categoryExpand">^</div>
-                        <div id="categoryName">TEXT CHANNELS</div>
-                        <div id="channelSelected">
-                            <div id="channelType">#</div>
-                            <div id="channelName">not-nsfw-chan</div>
+                        <div class="categoryExpanded">^</div>
+                        <div class="categoryName">TEXT CHANNELS</div>
+                        <div class="channelSelected">
+                            <div class="channelType">#</div>
+                            <div class="channelName">not-nsfw-chan</div>
                         </div>
-                        <div id="channel">
-                            <div id="channelType">!!</div>
-                            <div id="channelName">yes-nsfw-chan</div>
+                        <div class="channel">
+                            <div class="channelType">!!</div>
+                            <div class="channelName">yes-nsfw-chan</div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +61,7 @@
             <div id="messageList">
                 <div id="messageElement">
                     <div id="authorImg"></div>
-                    <p id="messageAuthor">maalos</p>
+                    <p id="messageAuthor">User</p>
                     <p id="message">Hello, world!</p>
                 </div>
             </div>
@@ -76,6 +74,6 @@
                 <div id="channelTopName"></div>
             </div>
             <div id="separator"></div>
+        </div>
     </body>
-
 </html>

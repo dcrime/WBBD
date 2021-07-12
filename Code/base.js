@@ -14,7 +14,7 @@ function createWindow() {
             enableRemoteModule: false,
         },
         frame: true
-    })    
+    })
 
     win.loadFile(`${site}/index.html`)
     // Menu.setApplicationMenu(null)

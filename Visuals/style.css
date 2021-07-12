@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 body {
-    background-color: #36393F;
+    background-color: #36393f;
     font-family: 'Open Sans';
     user-select: none;
     color: white;
@@ -24,7 +24,7 @@ span:focus {
 }
 
 #right {
-    background-color: #2F3136;
+    background-color: #2f3136;
     overflow-y: scroll;
     position: absolute;
     height: 100%;
@@ -39,7 +39,7 @@ span:focus {
 }
 
 #midHide {
-    margin: 0px 10px 0px 5px
+    margin: 0px 10px 0px 5px;
 }
 
 #home {
@@ -54,7 +54,7 @@ span:focus {
 }
 
 .guild {
-    background-color: #36393F;
+    background-color: #36393f;
     border-radius: 50px;
     padding-top: 20px;
     text-align: center;
@@ -67,13 +67,13 @@ span:focus {
 }
 
 .guild:hover {
-    background-color: #5865F2;
+    background-color: #5865f2;
     border-radius: 15px;
     transition: 200ms;
 }
 
 .guildSelected {
-    background-color: #5865F2;
+    background-color: #5865f2;
     border-radius: 15px;
     transition: 200ms;
 }
@@ -115,7 +115,7 @@ span:focus {
 }
 
 #channelTopNamePlaceholder {
-    background-color: #36393F;
+    background-color: #36393f;
     align-items: center;
     display: flex;
     height: 51px;
@@ -133,7 +133,7 @@ span:focus {
     font-weight: 600;
     margin-top: -2px;
     font-size: 16px;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 #separator {
@@ -161,43 +161,43 @@ span:focus {
     width: 230px;
 }
 
-#categoryExpand {
-    margin-left: 12px;
-    font-weight: 800;
-    transform: rotate(180deg);
-    font-size: 12px;
-    display: inline-flex;
-    color: #8E9297;
-}
-
-#categoryExpanded {
+.categoryExpand {
     margin-left: 12px;
     font-weight: 800;
     transform: rotate(90deg);
     font-size: 12px;
     display: inline-flex;
-    color: #8E9297;
+    color: #8e9297;
 }
 
-#categoryExpand:hover,
-#categoeyExpanded:hover {
-    color: #DCDDDE;
+.categoryExpanded {
+    margin-left: 12px;
+    font-weight: 800;
+    transform: rotate(180deg);
+    font-size: 12px;
+    display: inline-flex;
+    color: #8e9297;
 }
 
-#categoryName {
+.categoryExpand:hover,
+.categoryExpanded:hover {
+    color: #dcddde;
+}
+
+.categoryName {
     display: inline-flex;
     margin-bottom: 7px;
     font-weight: 800;
     margin-top: 7px;
     font-size: 12px;
-    color: #8E9297;
+    color: #8e9297;
 }
 
-#categoryName:hover {
-    color: #DCDDDE;
+.categoryName:hover {
+    color: #dcddde;
 }
 
-#channel {
+.channel {
     background-color: inherit;
     margin-right: 10px;
     padding-left: 7px;
@@ -205,10 +205,10 @@ span:focus {
     padding-top: 7px;
     font-size: 16px;
     height: 27px;
-    color: #8E9297;
+    color: #8e9297;
 }
 
-#channelSelected {
+.channelSelected {
     background-color: rgba(79, 84, 92, 0.32);
     border-radius: 8px;
     margin-right: 10px;
@@ -217,10 +217,10 @@ span:focus {
     margin-left: 10px;
     font-size: 16px;
     height: 27px;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
-#channelType {
+.channelType {
     margin-right: 5px;
     font-weight: 600;
     margin-left: 10px;
@@ -230,16 +230,17 @@ span:focus {
     width: 12px;
 }
 
-#channelName {
+.channelName {
     text-align: center;
     display: inline-flex;
 }
 
-#channel:hover {
-    color: #DCDDDE;
+.channel:hover {
+    color: #dcddde;
 }
 
-#messageList {}
+#messageList {
+}
 
 #messageElement {
     margin-bottom: 20px;
@@ -276,7 +277,7 @@ span:focus {
 }
 
 #messageBox {
-    background-color: #40444B;
+    background-color: #40444b;
     border-radius: 8px;
     padding-left: 10px;
     padding-top: 10px;
@@ -293,7 +294,7 @@ span:focus {
 }
 
 #messageBox[contenteditable]:empty::before {
-    content: "Enter message";
+    content: 'Enter message';
     color: #aaaaaa;
 }
 
