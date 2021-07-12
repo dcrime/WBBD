@@ -367,7 +367,7 @@ span:focus {
     padding: 10px;
     z-index: 150;
     height: 100px;
-    width: 530px;
+    display: table;
 }
 
 #infoBox p {
