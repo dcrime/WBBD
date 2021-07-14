@@ -272,7 +272,7 @@ span:focus {
     max-height: 500px;
     min-height: 44px;
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     width: 100%;
 }
 
@@ -530,4 +530,27 @@ span:focus {
     bottom: -2px;
     right: -2px;
     border: 2px solid #292B2F;
+}
+
+#typingIndicatorPlaceholder {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+}
+
+#typingIndicator {
+    font-weight: 900;
+    font-size: 40px;
+    margin: 0;
+    margin-left: 20px;
+    position: relative;
+    bottom: -4px;
+}
+
+#typingIndicatorMember {
+    margin: 0;
+    margin-left: 5px;
+    font-size: 12px;
+    position: relative;
+    bottom: -36px;
 }
