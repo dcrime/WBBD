@@ -143,6 +143,12 @@ span:focus {
     color: white;
 }
 
+#separatorMiddle {
+    background-color: #222427;
+    height: 2px;
+    color: white;
+}
+
 #home-sep {
     background-color: rgba(255, 255, 255, 0.06);
     position: relative;
@@ -240,13 +246,20 @@ span:focus {
 }
 
 #messageList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    vertical-align: bottom;
+    height: calc(100% - 22px - 51px - 55px);
+    width: calc(100% - 20px);
 }
 
 #messageElement {
-    margin-bottom: 20px;
+    margin-top: 20px;
     margin-left: 20px;
     user-select: text;
     display: flex;
+    width: 100%;
 }
 
 #messageAuthor {
