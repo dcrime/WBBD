@@ -6,18 +6,21 @@ type KeysOfType<A, T> = {
 
 type PickWithType<A, T> = Pick<A, KeysOfType<A, T>>
 
-function createElement<T extends keyof HTMLElementTagNameMap>(
+declare function createElement<T extends keyof HTMLElementTagNameMap>(
   tag: T,
   options: Partial<PickWithType<HTMLElementTagNameMap[T], string>>
 ): HTMLElementTagNameMap[T] {
   return Object.assign(document.createElement(tag), options)
 }
 
-function assignClasses(object: HTMLElement, classArray: array): HTMLElement
-function appendChildren(object: HTMLElement, childArray: array): HTMLElement
+declare interface Element {
+  assignClasses(classArray: Array<string>): HTMLElement,
+  appendChildren(...childArray: Array<HTMLElement>): HTMLElement,
+  removeChildren(): HTMLElement
+};
 
-function botLogin(token: string): Promise<boolean>
+declare function botLogin(token: string): Promise<boolean>
 
-let bot: Discord.Client
+declare let bot: Discord.Client
 
 //createElement('img', { src: "link" });

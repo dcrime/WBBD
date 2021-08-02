@@ -136,6 +136,11 @@ span:focus {
     color: #ffffff;
 }
 
+#channelPlaceholder {
+    overflow-y: scroll;
+    height: calc(100% - 51px - 62px - 20px);
+}
+
 #separator {
     background-color: #222427;
     margin-bottom: 20px;
@@ -143,8 +148,8 @@ span:focus {
     color: white;
 }
 
-#separatorMiddle {
-    background-color: #222427;
+.separatorMidRight {
+    background-color: #292c30;
     height: 2px;
     color: white;
 }
@@ -158,16 +163,17 @@ span:focus {
     top: 30px;
 }
 
-#category {
+.category {
     padding-bottom: 2px;
 }
 
-#categoryPlaceholder {
+.categoryPlaceholder {
     display: table-cell;
     width: 230px;
 }
 
 .categoryExpand {
+    margin-right: 3px;
     margin-left: 12px;
     font-weight: 800;
     transform: rotate(90deg);
@@ -177,6 +183,7 @@ span:focus {
 }
 
 .categoryExpanded {
+    margin-right: 3px;
     margin-left: 12px;
     font-weight: 800;
     transform: rotate(180deg);
@@ -191,11 +198,11 @@ span:focus {
 }
 
 .categoryName {
-    display: inline-flex;
     margin-bottom: 7px;
     font-weight: 800;
     margin-top: 7px;
     font-size: 12px;
+    display: inline-flex;
     color: #8e9297;
 }
 
@@ -206,32 +213,26 @@ span:focus {
 .channel {
     background-color: inherit;
     margin-right: 10px;
-    padding-left: 7px;
+    padding-left: 0px;
     margin-left: 10px;
-    padding-top: 7px;
-    font-size: 16px;
-    height: 27px;
+    padding-top: 2px;
+    font-size: 12px;
+    height: 18px;
     color: #8e9297;
 }
 
-.channelSelected {
+.selectedChan {
     background-color: rgba(79, 84, 92, 0.32);
     border-radius: 8px;
-    margin-right: 10px;
-    padding-left: 7px;
-    padding-top: 7px;
-    margin-left: 10px;
-    font-size: 16px;
-    height: 27px;
     color: #ffffff;
 }
 
 .channelType {
-    margin-right: 5px;
+    margin-right: 1px;
     font-weight: 600;
     margin-left: 10px;
     margin-top: -10px;
-    font-size: 20px;
+    font-size: 14px;
     display: inline-flex;
     width: 12px;
 }
@@ -246,10 +247,10 @@ span:focus {
 }
 
 #messageList {
-    display: flex;
-    flex-wrap: wrap;
     flex-direction: column-reverse;
     vertical-align: bottom;
+    flex-wrap: wrap;
+    display: flex;
     height: calc(100% - 22px - 51px - 55px);
     width: calc(100% - 20px);
 }
@@ -285,7 +286,7 @@ span:focus {
     max-height: 500px;
     min-height: 44px;
     position: absolute;
-    bottom: 20px;
+    bottom: 25px;
     width: 100%;
 }
 
@@ -314,6 +315,7 @@ span:focus {
 #loginScreen {
     background-color: #222222;
     position: absolute;
+    display: none;
     z-index: 100;
     height: 100%;
     width: 100%;
@@ -338,11 +340,11 @@ span:focus {
 #loginToken {
     background-color: #333333;
     border-radius: 8px;
+    text-align: center;
     padding: 10px;
     border: 2px solid #222222;
     color: #cccccc;
     width: 500px;
-    text-align: center;
 }
 
 #loginButton {
@@ -409,8 +411,8 @@ span:focus {
 }
 
 #infoBold {
-    font-size: 16px;
     font-weight: 800;
+    font-size: 16px;
     color: #dddddd;
 }
 
@@ -419,24 +421,22 @@ span:focus {
     color: #dddddd;
 }
 
-#memberList {
-
-}
+#memberList {}
 
 #memberRole {
     margin-bottom: 7px;
+    padding-left: 15px;
     font-weight: 800;
     margin-top: 7px;
     font-size: 12px;
     color: #8E9297;
-    padding-left: 15px;
 }
 
 .member {
-    display: flex;
-    padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 15px;
+    padding-top: 5px;
+    display: flex;
     cursor: pointer;
 }
 
@@ -445,65 +445,70 @@ span:focus {
 }
 
 .memberNick {
-    color: lime;
-    margin: 0;
-    margin-left: 10px;
-    margin-top: 5px;
     font-weight: 600;
+    margin: 4px 0px 0px 8px;
+    color: lime;
 }
 
 .memberImg {
+    background-color: #cccccc;
+    border-radius: 50px;
+    position: relative;
     height: 32px;
     width: 32px;
-    border-radius: 50px;
-    background-color: #cccccc;
-    position: relative;
 }
 
 .memberStatusOnline {
-    height: 10px;
-    width: 10px;
-    border-radius: 50px;
     background-color: #389C58;
+    border-radius: 50px;
     position: absolute;
-    bottom: -2px;
-    right: -2px;
     border: 2px solid #2F3136;
+    height: 10px;
+    bottom: -2px;
+    width: 10px;
+    right: -2px;
 }
 
 .memberStatusIdle {
+    background-color: #FAA81A;
+    border-radius: 50px;
+    position: absolute;
+    border: 2px solid #2F3136;
+    bottom: -2px;
     height: 10px;
     width: 10px;
-    border-radius: 50px;
-    background-color: #FAA81A;
-    position: absolute;
-    bottom: -2px;
     right: -2px;
-    border: 2px solid #2F3136;
 }
 
 .memberStatusDnd {
+    background-color: #E94144;
+    border-radius: 50px;
+    position: absolute;
+    border: 2px solid #2F3136;
+    bottom: -2px;
     height: 10px;
     width: 10px;
-    border-radius: 50px;
-    background-color: #E94144;
-    position: absolute;
-    bottom: -2px;
     right: -2px;
-    border: 2px solid #2F3136;
 }
 
 #userCard {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    width: calc(100% - 10px);
     background-color: #292B2F;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: absolute;
+    flex-wrap: wrap;
+    display: flex;
+    bottom: 0;
     height: 52px;
+    width: calc(100% - 10px);
+    left: 0;
+}
+
+#avatar {
+    position: relative;
+    bottom: -16px;
+    height: 32px;
+    width: 32px;
 }
 
 #userCard p {
@@ -511,59 +516,82 @@ span:focus {
 }
 
 #userImg {
-    width: 32px;
-    height: 32px;
     background-color: #cccccc;
     border-radius: 50px;
     position: relative;
-    bottom: -16px;
+    height: 32px;
+    width: 32px;
 }
 
 #userNick {
     padding-left: 10px;
-    position: relative;
-    top: 12px;
-    font-size: 14px;
     font-weight: 600;
+    position: relative;
+    font-size: 14px;
+    top: 16px;
 }
 
 #userTag {
-    position: relative;
-    left: 40px;
     font-size: 12px;
+    position: relative;
     color: #cccccc;
+    left: 40px;
 }
 
 #userStatusOnline {
-    height: 10px;
-    width: 10px;
-    border-radius: 50px;
     background-color: #389C58;
+    border-radius: 50px;
     position: absolute;
-    bottom: -2px;
-    right: -2px;
     border: 2px solid #292B2F;
+    height: 10px;
+    bottom: -2px;
+    right: 1px;
+    width: 10px;
 }
 
 #typingIndicatorPlaceholder {
-    display: flex;
     position: absolute;
-    bottom: 0;
+    display: flex;
+    bottom: 0px;
 }
 
-#typingIndicator {
+.typingIndicator {
     font-weight: 900;
     font-size: 40px;
-    margin: 0;
-    margin-left: 20px;
     position: relative;
-    bottom: -4px;
+    margin: 0;
 }
 
 #typingIndicatorMember {
-    margin: 0;
-    margin-left: 5px;
     font-size: 12px;
     position: relative;
-    bottom: -36px;
+    bottom: 3px;
+    margin: 34px 0px 0px 3px;
+}
+
+#t1 {
+    animation: TypingAnim 1s linear 0.2s infinite;
+    margin-left: 20px;
+}
+
+#t2 {
+    animation: TypingAnim 1s linear 0.3s infinite;
+    /* animation-delay: 200ms; */
+}
+
+#t3 {
+    animation: TypingAnim 1s linear 0.4s infinite;
+    /* animation-delay: 300ms; */
+}
+
+@keyframes TypingAnim {
+    0% {
+        bottom: 0px;
+    }
+    10% {
+        bottom: 5px;
+    }
+    20% {
+        bottom: 0px;
+    }
 }
