@@ -4,8 +4,19 @@
 
 // @ts-check
 
-function start() {
+let globals = {
+    guild: null,
+    chan: null,
+    intents: {
+        members: false,
+        presences: true,
+        setting: 1
+    },
+}
+
+async function start() {
     userCard()
+    // await bot.fetchApplication()
     let left = document.getElementById('left'),
         homeSep = document.getElementById('home-sep')
 
@@ -16,6 +27,8 @@ function userCard() {
     document.getElementById('userNick').innerText = bot.user.username
     document.getElementById('userTag').innerText = `#${bot.user.discriminator}`
     document.getElementById('userImg').src = bot.user.avatarURL()
+    globals.intents.members = flags.has(Intents.FLAGS.GUILD_MEMBERS)
+    globals.intents.presences = flags.has(Intents.FLAGS.GUILD_PRESENCES)
 }
 
 function login(token = null) {
@@ -37,10 +50,15 @@ function login(token = null) {
         // @ts-ignore
         botLogin(token).then(confirm => {
             switch (confirm.info) {
+                case 3:
+                    changeIntent(globals.intents.setting--)
+                    login(token)
+                    break;
                 case 2:
                     start(), document.getElementById('loginScreen').style.display = 'none'
                     showNotif('Login Successful', [
                         { type: 'infoDefault', content: 'You have logged into the bot' },
+                        { type: 'infoDefault', content: `MEMBERS: ${globals.intents.members}\nPRESENCES: ${globals.intents.presences}` }
                         // @ts-ignore
                     ]), !saved && localStorage.setItem('token', token)
                     break;
@@ -59,6 +77,7 @@ function login(token = null) {
                     break;
 
                 default:
+                    console.log(confirm.e)
                     showNotif('Unknown Error', [
                         { type: 'infoDefault', content: confirm.e },
                     ])
@@ -94,6 +113,7 @@ function showNotif(title, contents) {
 
 function setup() {
     document.getElementById('channelPlaceholder').removeChildren()
+    changeIntent(globals.intents.setting)
     login(localStorage.getItem('token'))
 }
 

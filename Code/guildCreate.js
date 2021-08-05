@@ -1,10 +1,10 @@
 // const Discord = require('discord.js');
 
 types = {
-	category: '^',
-	text: `#`,
-	voice: '/',
-	news: '$',
+	GUILD_CATEGORY: '^',
+	GUILD_TEXT: `#`,
+	GUILD_VOICE: '/',
+	GUILD_NEWS: '$',
 	nsfw: '!!'
 }
 function displayGuild(amount, homeSep, left) {
@@ -12,7 +12,11 @@ function displayGuild(amount, homeSep, left) {
 
 	bot.guilds.cache.forEach(g => {
 		let guild = createElement('div', {
-			onclick: () => { createChannels(g.channels.cache) }
+			onclick: () => {
+				createChannels(g.channels.cache); globals.guild = g
+				listMembers(g)
+				document.getElementById('guildName').innerText = g.name
+			}
 		});
 
 		guild.classList.add('guild')
@@ -65,6 +69,7 @@ function createChannels(channels) {
 				document.querySelector('.selectedChan')?.classList.toggle('selectedChan')
 				channel.classList.toggle('selectedChan')
 				document.getElementById('channelTopName').innerText = chan.name
+				globals.chan = chan
 			}
 		}).assignClasses('channel')
 		channel.appendChildren(
@@ -76,20 +81,27 @@ function createChannels(channels) {
 
 	let checkType = (a, b, type) => a.type == type && b.type !== type ? 1 : a.type !== type && b.type == type ? -1 : void 0;
 	channels
-		.filter((a) => "category" != a.type && !a.parentID || "category" == a.type)
+		.filter((a) => (a.type != "GUILD_CATEGORY" && a.parentId == null) || a.type == "GUILD_CATEGORY")
 		.sort((a, b) => {
-			let [p, p1] = [a.position, b.position]
+			let [p, p1] = [a.rawPosition, b.rawPosition]
 
-			return checkType(a, b, 'category') != null
-				? checkType(a, b, 'category') : checkType(a, b, 'voice') != null
-					? checkType(a, b, 'voice') : p - p1
+			return checkType(a, b, 'GUILD_CATEGORY') != null
+				? checkType(a, b, 'GUILD_CATEGORY') : checkType(a, b, 'GUILD_VOICE') != null
+					? checkType(a, b, 'GUILD_VOICE') : p - p1
 		})
 		.forEach(e => {
-			e.type == 'category' ? category(e) : channel(e)
-			e.type == 'category' && e.children.size >= 1 && e.children.sort((a, b) => {
-				let [p, p1] = [a.position, b.position]
-				return checkType(a, b, 'voice') != null
-					? checkType(a, b, 'voice') : p - p1
+			console.log(e.name)
+			e.type == 'GUILD_CATEGORY' ? category(e) : channel(e)
+			e.type == 'GUILD_CATEGORY' && e.children.size >= 1 && e.children.sort((a, b) => {
+				let [p, p1] = [a.rawPosition, b.rawPosition]
+				return checkType(a, b, 'GUILD_VOICE') != null
+					? checkType(a, b, 'GUILD_VOICE') : p - p1
 			}).forEach(a => channel(a))
 		})
+}
+
+/** @param {Discord.Guild} guild */
+async function listMembers(guild) {
+	if (globals.intents.members) await guild.members.fetch()
+	console.log(guild.members.cache)
 }
