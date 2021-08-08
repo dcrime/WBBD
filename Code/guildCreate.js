@@ -7,6 +7,13 @@ types = {
 	GUILD_NEWS: '$',
 	nsfw: '!!'
 }
+statuses = {
+	invisibile: 'memberStatusOffline',
+	online: 'memberStatusOnline',
+	idle: 'memberStatusIdle',
+	dnd: 'memberStatusDnd',
+}
+
 function displayGuild(amount, homeSep, left) {
 	let i = 0;
 
@@ -90,7 +97,7 @@ function createChannels(channels) {
 					? checkType(a, b, 'GUILD_VOICE') : p - p1
 		})
 		.forEach(e => {
-			console.log(e.name)
+			// console.log(e.name)
 			e.type == 'GUILD_CATEGORY' ? category(e) : channel(e)
 			e.type == 'GUILD_CATEGORY' && e.children.size >= 1 && e.children.sort((a, b) => {
 				let [p, p1] = [a.rawPosition, b.rawPosition]
@@ -103,5 +110,43 @@ function createChannels(channels) {
 /** @param {Discord.Guild} guild */
 async function listMembers(guild) {
 	if (globals.intents.members) await guild.members.fetch()
-	console.log(guild.members.cache)
+	let parent = document.getElementById('memberList')
+
+	let tmpRoles = []
+	let members = guild.members.cache.sort((a, b) =>
+	(
+		a.roles.hoist && !tmpRoles.includes(a.roles.hoist.id) && tmpRoles.push(a.roles.hoist.id),
+		a.displayName.localeCompare(b.displayName))
+	)
+	let roles = guild.roles.cache.filter(role => tmpRoles.includes(role.id)).sort((a, b) => b.position - a.position)
+
+	parent.removeChildren()
+
+	roles.forEach(role => {
+		console.log(role.name)
+		parent.appendChildren(createElement('p', { innerText: role.name, id: role.id })).assignClasses('memberRole')
+	})
+
+	// let role = createElement('div', {
+	// 	id: role.id,
+	// 	onclick: () => { }
+	// }).assignClasses('memberRole')
+	members.forEach(
+		(member) => {
+			let memberDiv = createElement('div', {
+				id: member.id,
+				onclick: () => { }
+			}).assignClasses('member')
+			let name = createElement('div', { innerText: member.displayName }).assignClasses('memberNick')
+			name.style.color = member.roles.hoist?.hexColor
+			memberDiv.appendChildren(
+				createElement('div').assignClasses('memberImg').appendChildren(createElement('div').assignClasses(statuses[member.presence?.status] || 'invisible')),
+				name
+			)
+			member.roles.hoist
+				? document.getElementById(member.roles.hoist.id).appendChild(memberDiv)
+				: parent.appendChild(memberDiv)
+		}
+	)
+	// parent.appendChild(member)
 }

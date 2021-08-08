@@ -10,7 +10,7 @@ let globals = {
     intents: {
         members: false,
         presences: true,
-        setting: 1
+        setting: 4
     },
 }
 
