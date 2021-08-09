@@ -138,14 +138,18 @@ async function listMembers(guild) {
 				onclick: () => { }
 			}).assignClasses('member')
 			let name = createElement('div', { innerText: member.displayName }).assignClasses('memberNick')
-			name.style.color = member.roles.hoist?.hexColor
+			name.style.color = member.roles.hoist?.hexColor || '#b9bbbe'
 			memberDiv.appendChildren(
 				createElement('div').assignClasses('memberImg').appendChildren(createElement('div').assignClasses(statuses[member.presence?.status] || 'invisible')),
 				name
 			)
-			member.roles.hoist
-				? document.getElementById(member.roles.hoist.id).appendChild(memberDiv)
-				: parent.appendChild(memberDiv)
+			
+			document.getElementById(member.roles.hoist?.id) 
+			? document.getElementById(member.roles.hoist.id).appendChild(memberDiv)
+			: parent.appendChild(memberDiv)
+			
+
+
 		}
 	)
 	// parent.appendChild(member)
