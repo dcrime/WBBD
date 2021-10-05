@@ -18,6 +18,20 @@ Element.prototype.removeChildren = function () {
     return this
 }
 
+Element.prototype.setValue = function (value) {
+    this.value = value
+    return this
+}
+
+Element.prototype.setInner = function (value) {
+    this.innerText = value
+    return this
+}
+Element.prototype.setInnerHTML = function (value) {
+    this.innerHTML = value
+    return this
+}
+
 const sortObject = (object, func = (object, array) => { }, flip = false) => {
     if (typeof object !== 'object') return new Error(`object is required. got type ${typeof object}`)
     if (typeof func !== 'function') return new Error(`function is required. got type ${typeof func}`)

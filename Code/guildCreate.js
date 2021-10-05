@@ -1,4 +1,5 @@
 // const Discord = require('discord.js');
+// const { bot } = require("./global")
 
 types = {
 	GUILD_CATEGORY: '^',
@@ -38,6 +39,23 @@ function displayGuild(amount, homeSep, left) {
 		i++;
 	});
 }
+
+/** @param {Discord.Collection<String, Discord.Message>} messages */
+async function listMessages(messages) {
+	messages = await messages
+	let messageList = document.getElementById('messageList').removeChildren()
+	messages.forEach(m => {
+		let messageElement = createElement('div').assignClasses('messageElement').appendChildren(
+			createElement('div').assignClasses('authorImg'),
+			createElement('p').assignClasses('messageAuthor').setInner(m.member.displayName),
+			m.content != '' ?
+			createElement('p').assignClasses('message').setInner(m.content)
+			: createElement('p').assignClasses('message').setInnerHTML('<strong>||||||NO CONTENTS TO BE DISPLAYED|||||||</strong>')
+		)
+		messageList.appendChildren(messageElement)
+	})
+}
+
 /** @param {Discord.Collection<String, Discord.Channel>} channels */
 function createChannels(channels) {
 	let chanPlace = document.getElementById('channelPlaceholder').removeChildren()
@@ -77,6 +95,7 @@ function createChannels(channels) {
 				channel.classList.toggle('selectedChan')
 				document.getElementById('channelTopName').innerText = chan.name
 				globals.chan = chan
+				listMessages(chan.messages.fetch())
 			}
 		}).assignClasses('channel')
 		channel.appendChildren(
@@ -143,11 +162,11 @@ async function listMembers(guild) {
 				createElement('div').assignClasses('memberImg').appendChildren(createElement('div').assignClasses(statuses[member.presence?.status] || 'invisible')),
 				name
 			)
-			
-			document.getElementById(member.roles.hoist?.id) 
-			? document.getElementById(member.roles.hoist.id).appendChild(memberDiv)
-			: parent.appendChild(memberDiv)
-			
+
+			document.getElementById(member.roles.hoist?.id)
+				? document.getElementById(member.roles.hoist.id).appendChild(memberDiv)
+				: parent.appendChild(memberDiv)
+
 
 
 		}

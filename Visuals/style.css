@@ -255,7 +255,7 @@ span:focus {
     width: calc(100% - 20px);
 }
 
-#messageElement {
+.messageElement {
     margin-top: 20px;
     margin-left: 20px;
     user-select: text;
@@ -263,21 +263,21 @@ span:focus {
     width: 100%;
 }
 
-#messageAuthor {
+.messageAuthor {
     margin-left: 10px;
     font-weight: 600;
     margin-top: 0;
     color: lime;
 }
 
-#authorImg {
+.authorImg {
     background-color: #cccccc;
     border-radius: 50px;
     height: 48px;
     width: 48px;
 }
 
-#message {
+.message {
     margin-left: -35px;
     margin-top: 25px;
 }
