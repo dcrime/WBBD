@@ -272,6 +272,7 @@ span:focus {
 
 .authorImg {
     background-color: #cccccc;
+    background-size: cover;
     border-radius: 50px;
     height: 48px;
     width: 48px;
@@ -451,6 +452,7 @@ span:focus {
 
 .memberImg {
     background-color: #cccccc;
+    background-size: cover;
     border-radius: 50px;
     position: relative;
     height: 32px;

@@ -46,7 +46,7 @@ async function listMessages(messages) {
 	let messageList = document.getElementById('messageList').removeChildren()
 	messages.forEach(m => {
 		let messageElement = createElement('div').assignClasses('messageElement').appendChildren(
-			createElement('div').assignClasses('authorImg'),
+			createElement('div', { style: `background-image: url(${m.member.displayAvatarURL({ size: 64 })})` }).assignClasses('authorImg'),
 			createElement('p').assignClasses('messageAuthor').setInner(m.member.displayName),
 			m.content != '' ?
 			createElement('p').assignClasses('message').setInner(m.content)
@@ -159,7 +159,7 @@ async function listMembers(guild) {
 			let name = createElement('div', { innerText: member.displayName }).assignClasses('memberNick')
 			name.style.color = member.roles.hoist?.hexColor || '#b9bbbe'
 			memberDiv.appendChildren(
-				createElement('div').assignClasses('memberImg').appendChildren(createElement('div').assignClasses(statuses[member.presence?.status] || 'invisible')),
+				createElement('div', { style: `background-image: url(${member.displayAvatarURL({ size: 32 })})` }).assignClasses('memberImg').appendChildren(createElement('div').assignClasses(statuses[member.presence?.status] || 'invisible')),
 				name
 			)
 
