@@ -10,14 +10,22 @@ Android support was highly requested on projects like this, however, I decided i
 
 ### Info
 For now this project is just a template, of how it's supposed to look like in the future!
-It's designed to look similar to discord to avoid another learning curve
+It's designed to look similar to discord to avoid another learning curve.
 
 ## Installation
-You should have [Node.js](https://nodejs.org/en/) installed
+You should have [Node.js](https://nodejs.org/en/) installed.
 
 The easiest way is to use [git](https://git-scm.com/).
+
+Linux/\*nix:
 ```bash
 git clone https://github.com/dcrime/WBBD.git; cd WBBD; npm i
+```
+Windows:
+```bash
+git clone https://github.com/dcrime/WBBD.git
+cd WBBD
+npm i
 ```
 
 ## How to run
